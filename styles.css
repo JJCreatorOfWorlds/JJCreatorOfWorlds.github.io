@@ -1,0 +1,25 @@
+h1 {
+    font-size: 30;
+}
+h2 {
+    font-size: 30;
+}
+.header {
+    text-align: center;
+    color: white;
+    padding: 6%;
+    background: abcd;
+    background-color: #102820;
+}
+.grid-container {
+    display: grid;
+    padding: 5px;
+    grid-template-columns: auto auto auto auto;
+    background-color: #4c6444;
+}
+.grid-item {
+    background-color: #caba9c;
+    padding: 15px;
+    width: 25%;
+    border: 5px solid #4c6444;
+}
