@@ -14,7 +14,7 @@ body, html {
 }
 .header {
     text-align: center;
-    color: white;
+    color: brown;
     padding: 10px;
     display: flex;
     align-items: center;
