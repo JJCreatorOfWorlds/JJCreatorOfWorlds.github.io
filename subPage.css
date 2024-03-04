@@ -19,6 +19,19 @@ header {
 .cart:hover {
     transform: scale(1.2);
 }
+.alert {
+    height: 25px;
+    display: flex;
+    width: 25px;
+    background-color: rgb(110, 0, 0);
+    border-radius: 50%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: -60px;
+    margin-left: 35px;
+}
 .back {
     height: 20px;
     justify-content: center;
@@ -70,6 +83,13 @@ p {
     width: 10%;
     padding: 20px;
 }
+button {
+    color: white;
+    background-color: #102820;
+    height: 70px;
+    width: 100%;
+    border-color: white;
+}
 
 /*--------------------------------------------------------------------------------------*/
 .footer {
@@ -80,3 +100,4 @@ p {
     background-color: #102820;
     margin: 10px;
 }
+/*-------------------------------------------------------------------------*/

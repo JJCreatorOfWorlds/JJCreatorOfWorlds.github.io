@@ -6,7 +6,7 @@
         <link href="../subPage.css" rel="stylesheet"/>
 
     </head>
-    <body>
+    <body onload="updateCart()">
         <header>
             <div class="back">
                 <a href="../index.html"><img src="../img/back.png" alt="back arrow" class="arrow"/></a>
@@ -15,7 +15,10 @@
                 <h1>O Gauge Model Trains</h1>
             </div>
             <div class="cart">
-                <img src="../img/cart.png" alt="cart" class="cart-img" height="50px">
+                <a href="cart.html"><img src="../img/cart.png" alt="cart" class="cart-img" height="50px"></a>
+                <div class="alert">
+                    <div id="localAlert">0</div>
+                </div>
             </div>
         </header>
 
@@ -40,7 +43,8 @@
             </div>
             <div class="sale">
                 <p>89.99$ + Shipping</p>
-                <p>Entierly custom! Include what you'd want on it in the order.</p>
+                <button type="button" onclick="addItem('Custom Box Car', 89.99)">Add To Cart</button>
+                <button type="button" onclick="removeItem('Custom Box Car', 89.99)">Remove From Cart</button>
             </div>
         </div>
 
@@ -53,5 +57,6 @@
             <div class="power">
                 <img src="../img/squareLogo.png" alt="square logo" height="150px">
             </div>
+        <script src="../subPage.js"></script>
     </body>
 </html>

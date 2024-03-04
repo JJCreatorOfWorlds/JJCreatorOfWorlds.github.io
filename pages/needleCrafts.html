@@ -6,7 +6,7 @@
         <link href="../subPage.css" rel="stylesheet"/>
 
     </head>
-    <body>
+    <body onload="updateCart()">
         <header>
             <div class="back">
                 <a href="../index.html"><img src="../img/back.png" alt="back arrow" class="arrow"/></a>
@@ -15,8 +15,10 @@
                 <h1>Fiber Arts</h1>
             </div>
             <div class="cart">
-                <img src="../img/cart.png" alt="cart" class="cart-img" height="50px">
-            </div>
+                <a href="cart.html"><img src="../img/cart.png" alt="cart" class="cart-img" height="50px"></a>
+                <div class="alert">
+                    <div id="localAlert">0</div>
+                </div>
         </header>
 
 
@@ -62,5 +64,6 @@
             <div class="power">
                 <img src="../img/squareLogo.png" alt="square logo" height="150px">
             </div>
-    </body>
-</html>
+        <script src="../subPage.js"></script>
+        </body>
+    </html>

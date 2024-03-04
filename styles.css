@@ -31,6 +31,19 @@ body, html {
     padding: 10px;
     background-color: #4c6444;
 }
+.alert {
+    height: 25px;
+    display: flex;
+    width: 25px;
+    background-color: rgb(110, 0, 0);
+    border-radius: 50%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: -60px;
+    margin-left: 35px;
+}
 .slide-img img{
     height: 10%;
 }

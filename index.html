@@ -5,7 +5,7 @@
         <link rel="icon" href="img/favicon.png">
         <title>JJ Irons</title>
     </head>
-<body>
+<body onload="updateCart()">
 <div class="header">
     <div class="end">
         <br>
@@ -21,7 +21,12 @@
         <img src="img/JJLogo.png" alt="JJ Irons, Artist, Craftsman, Designer">
     </div>
     <div class="store">
-        <img src="img/cart.png" alt="cart" class="cart-img">
+        <div class="cart">
+            <a href="pages/cart.html"><img src="img/cart.png" alt="cart" class="cart-img" height="50px"></a>
+            <div class="alert">
+                <div id="localAlert">0</div>
+            </div>
+        </div>
     </div>
     <div class="end">
         <br>

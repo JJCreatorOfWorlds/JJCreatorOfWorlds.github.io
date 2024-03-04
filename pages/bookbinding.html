@@ -6,7 +6,7 @@
         <link href="../subPage.css" rel="stylesheet"/>
 
     </head>
-    <body>
+    <body onload="updateCart()">
         <header>
             <div class="back">
                 <a href="../index.html"><img src="../img/back.png" alt="back arrow" class="arrow"/></a>
@@ -15,8 +15,10 @@
                 <h1>Bookbinding</h1>
             </div>
             <div class="cart">
-                <img src="../img/cart.png" alt="cart" class="cart-img" height="50px">
-            </div>
+                <a href="cart.html"><img src="../img/cart.png" alt="cart" class="cart-img" height="50px"></a>
+                <div class="alert">
+                    <div id="localAlert">0</div>
+                </div>
         </header>
 
 
@@ -40,7 +42,38 @@
 
             </div>
         </div>
+        <div class="project">
+            <div class="project-photo">
+                <img src="../img/SpiralBook.jpg" alt="black paper bound book">
+            </div>
+            <div class="project-info">
+                <h2>Spiral Notebook</h2>
+                <p>
+                    this is another hand bound book I made. It was actually the first 
+                    book i ever bound! I gave it away as a gift so I dont have it any more
+                    but im pretty sure the design from it came from an instructables page.
+                </p>
+            </div>
+            <div class="sale">
 
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-photo">
+                <img src="../img/emptyBooks.JPG" alt="black paper bound book">
+            </div>
+            <div class="project-info">
+                <h2>Blank Notebooks</h2>
+                <p>
+                    another book I made, these ones are completely blank but still have
+                    the paper cover i used in the book above. Im not a big fan of them honestly
+                    using cloth is so much better. 
+                </p>
+            </div>
+            <div class="sale">
+
+            </div>
+        </div>
 
 
         <div class="footer">
@@ -50,5 +83,6 @@
             <div class="power">
                 <img src="../img/squareLogo.png" alt="square logo" height="150px">
             </div>
-    </body>
-</html>
+        <script src="../subPage.js"></script>
+        </body>
+    </html>

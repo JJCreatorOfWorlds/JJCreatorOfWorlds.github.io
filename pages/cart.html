@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="../img/favicon.png">
+        <title>Cart: JJ Irons</title>
+        <link href="../cart.css" rel="stylesheet"/>
+
+    </head>
+    <body onload="populateCart()">
+        <header>
+            <div class="back">
+                <a href="../index.html"><img src="../img/back.png" alt="back arrow" class="arrow"/></a>
+            </div>
+            <div class="title-page">
+                <h1>Cart</h1>
+            </div>
+            <div class="submit">
+                <button type="submit" onclick="submitOrder()">Submit Order</button></a> 
+            </div>
+        </header>
+
+        <div class="checkout">
+            <div class="cartName">
+                <h2>Total:</h2>
+            </div>
+            <div class="itemInfo">
+                <div class="masterTotal">
+                    <h2 id="toPay"></h2>
+                </div>
+            </div>
+        </div>
+        <div class="checkout">
+            <ul id="itemNames">
+                <li>Total Tax</li>
+            </ul>
+            <ul id="itemPrices">
+                <li id="taxTotal"></li>
+            </ul>
+        </div>
+        <div class="checkout">
+            <p>
+                Note: Shipping cost is included in each item price. <br><br> After 
+                requesting an order, I will review it and ask any applicable 
+                questions <br> (ex: what design would you like on the custom box car) 
+                before sending you an invoice <br> through Square where you can securly 
+                submit your payment and shipping information.
+            </p>
+        </div>
+
+        <div class="footer">
+            <div class="logos">
+                <img src="../img/contacts.png" alt="contacts, JJCreatorOfWorld and me@jjirons.com" height="150px">
+            </div>
+            <div class="power">
+                <img src="../img/squareLogo.png" alt="square logo" height="150px">
+            </div>
+        </div>
+    <script src="../cart.js"></script>
+    </body>
+</html>

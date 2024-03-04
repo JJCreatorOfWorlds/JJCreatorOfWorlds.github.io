@@ -6,7 +6,7 @@
         <link href="../subPage.css" rel="stylesheet"/>
 
     </head>
-    <body>
+    <body onload="updateCart()">
         <header>
             <div class="back">
                 <a href="../index.html"><img src="../img/back.png" alt="back arrow" class="arrow"/></a>
@@ -15,8 +15,10 @@
                 <h1>Props</h1>
             </div>
             <div class="cart">
-                <img src="../img/cart.png" alt="cart" class="cart-img" height="50px">
-            </div>
+                <a href="cart.html"><img src="../img/cart.png" alt="cart" class="cart-img" height="50px"></a>
+                <div class="alert">
+                    <div id="localAlert">0</div>
+                </div>
         </header>
 
 
@@ -36,11 +38,30 @@
                 </p>
             </div>
             <div class="sale">
-                <p>10.00$</p>
-                <p>STL file only.</p>
+                <p>4.99 <br>STL ONLY</p>
+                <button type="button" onclick="addItem('BotW Sword STL', 4.99)">Add To Cart</button>
+                <button type="button" onclick="removeItem('BotW Sword STL', 4.99)">Remove From Cart</button>
             </div>
         </div>
-
+        <div class="project">
+            <div class="project-photo">
+                <img src="../img/VashGun.jpg" alt="cool Pistol">
+            </div>
+            <div class="project-info">
+                <h2>Vash's Revolver </h2>
+                <p>
+                    Vash's gun from the 1998 anime Trigun! Absolutly one of my favorite projects and 
+                    I would love to work on more props from that show. the 2023 remake of the show (Trigun Stampede)
+                    is much better IMO. If you would like to buy the STL know that I designed it to make earings with,
+                    so it doesn't have as much detail as it could. 
+                </p>
+            </div>
+            <div class="sale">
+                <p>1.99 <br>STL ONLY</p>
+                <button type="button" onclick="addItem('Vash Revolver STL', 1.99)">Add To Cart</button>
+                <button type="button" onclick="removeItem('Vash Revolver STL', 1.99)">Remove From Cart</button>
+            </div>
+        </div>
         <div class="project">
             <div class="project-photo">
                 <img src="../img/doriansRapier.png" alt="rapier sword">
@@ -57,7 +78,6 @@
             <div class="sale">
             </div>
         </div>
-
         <div class="project">
             <div class="project-photo">
                 <img src="../img/flameBlade.png" alt="flame sword">
@@ -111,6 +131,53 @@
             <div class="sale">
             </div>
         </div>
+        <div class="project">
+            <div class="project-photo">
+                <img src="../img/blaster.JPG" alt="silver gun with shiny orb">
+            </div>
+            <div class="project-info">
+                <h2>Laser Blaster</h2>
+                <p>
+                    Made durring my brief work with Nexus Dungeoneering Supply Co. I helped
+                    them to make prop weapons and this one is a mix of wiring, 3d printing,
+                    and foam. the ball in the top is a plasma ball and actually works. I had 
+                    a great time with this project and hope they liked it!
+                </p>
+            </div>
+            <div class="sale">
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-photo">
+                <img src="../img/oldSword.jpg" alt="white 3d printed sword">
+            </div>
+            <div class="project-info">
+                <h2>Old Sword</h2>
+                <p>
+                    the first sword I ever 3d printed! it was a thingiverse model and it was 
+                    all kinds of bad. I painted it without primer and didn't sand any of it.
+                    i broke it in half with the Tesseract Abyss I made later lol. 
+                </p>
+            </div>
+            <div class="sale">
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-photo">
+                <img src="../img/BloodDiversHelmet.jpg" alt="black helmet">
+            </div>
+            <div class="project-info">
+                <h2>Blood Diver Helmet</h2>
+                <p>
+                    the other piece I made while working with Nexus Dungeoneering. It was a fun
+                    project but took far too long to get the file to print. I did end up paintng it 
+                    but I'm not sure the paint stuck too well. Not my best project but im happy I got 
+                    the oppertunity to work on it!
+                </p>
+            </div>
+            <div class="sale">
+            </div>
+        </div>
 
 
 
@@ -121,5 +188,6 @@
             <div class="power">
                 <img src="../img/squareLogo.png" alt="square logo" height="150px">
             </div>
+    <script src="../subPage.js"></script>
     </body>
 </html>

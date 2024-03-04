@@ -6,7 +6,7 @@
         <link href="../subPage.css" rel="stylesheet"/>
 
     </head>
-    <body>
+    <body onload="updateCart()">
         <header>
             <div class="back">
                 <a href="../index.html"><img src="../img/back.png" alt="back arrow" class="arrow"/></a>
@@ -15,8 +15,10 @@
                 <h1>3D Printing</h1>
             </div>
             <div class="cart">
-                <img src="../img/cart.png" alt="cart" class="cart-img" height="50px">
-            </div>
+                <a href="cart.html"><img src="../img/cart.png" alt="cart" class="cart-img" height="50px"></a>
+                <div class="alert">
+                    <div id="localAlert">0</div>
+                </div>
         </header>
 
 
@@ -55,7 +57,37 @@
             <div class="sale">
             </div>
         </div>
-
+        <div class="project">
+            <div class="project-photo">
+                <img src="../img/TavernTalesDiceTower.JPG" alt="gray dice tower">
+            </div>
+            <div class="project-info">
+                <h2>Tavern Tales Dice Tower</h2>
+                <p>
+                    a dice tower from the VR RPG system Tavern Tales. origionaly I was 
+                    going to sell these with Mitch on his website but the timing didn't work
+                    out. I ended up making around 5 of them for various people and they 
+                    all loved them! I may consider selling them again if anyone is intrested. 
+                </p>
+            </div>
+            <div class="sale">
+            </div>
+        </div>
+        <div class="project">
+            <div class="project-photo">
+                <img src="../img/AlexaGramaphone.jpg" alt="black and white gramophone">
+            </div>
+            <div class="project-info">
+                <h2>Alexa Gramophone</h2>
+                <p>
+                    taken straight from thingiverse it's a great model that held up fairly well 
+                    im pretty sure its in 3 pieces right now but I haven't had a reason to fix it 
+                    an Amazon Alexa sits in the base and plays music. It was a fun thing to have!
+                </p>
+            </div>
+            <div class="sale">
+            </div>
+        </div>
 
 
         <div class="footer">
@@ -65,5 +97,6 @@
             <div class="power">
                 <img src="../img/squareLogo.png" alt="square logo" height="150px">
             </div>
-    </body>
-</html>
+        <script src="../subPage.js"></script>
+        </body>
+    </html>
