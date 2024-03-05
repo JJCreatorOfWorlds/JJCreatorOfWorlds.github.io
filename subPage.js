@@ -1,6 +1,6 @@
-let localAlert = localStorage.getItem("masterAlert");
-let cartItems = JSON.parse(localStorage.getItem("masterItems") || null);
-let cartPrices = JSON.parse(localStorage.getItem("masterPrices") || null);
+let localAlert = parseInt(localStorage.getItem("masterAlert")) || 0;
+let cartItems = JSON.parse(localStorage.getItem("masterItems")) || [];
+let cartPrices = JSON.parse(localStorage.getItem("masterPrices")) || [];
 
 function addItem(name, price) {
     cartItems.push(name);
