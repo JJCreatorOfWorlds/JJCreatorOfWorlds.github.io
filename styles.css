@@ -11,35 +11,16 @@ body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Source Serif 4", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-#app{
-    width: 100%;
-    max-width: 1080px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-}
-.loading-data{
-    width: 100%;
-    text-align: center;
-    color: white;
-    font-size: 200%;
-    margin: 20vh 0 30vh;
 }
 .header {
     text-align: center;
     color: white;
-    padding: 10px 20px;
+    padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 10%;
     max-height: 300px;
-    width: 100%;
 }
 .slideshow{
     height: 10%;
@@ -63,10 +44,8 @@ body, html {
     margin-top: -60px;
     margin-left: 35px;
 }
-.slide-img{
+.slide-img img{
     height: 10%;
-    width: 100%;
-    vertical-align: middle;
 }
 .info {
     width: 40%;
@@ -74,7 +53,6 @@ body, html {
 }
 .store {
     width: 50px;
-    cursor: pointer;
 }
 .cart-img:hover {
     transform: scale(1.2);
@@ -97,9 +75,8 @@ body, html {
     padding: 10px;
     width: 350px;
     border: 5px solid #102820;
-    cursor: pointer;
 }
-.body-img {
+img {
     width: 100%;
     vertical-align: middle;
 }
@@ -116,190 +93,4 @@ body, html {
     height: 10%;
     background-color: #102820;
     margin: 10px;
-}
-
-
-/*--------------------------------------------------------------------------------*/
-/*------------------------------------ Sub Page ----------------------------------*/
-/*--------------------------------------------------------------------------------*/
-header {
-    display: flex;
-    margin: 10px;
-    margin-bottom: 10px;
-    background-color: #4c6444;
-    padding: 5px;
-    justify-content: space-between;
-    color: white;
-}
-.back {
-    width: 33%;
-    display: flex;
-    align-items: center;
-}
-.arrow {
-    height: 70px;
-    cursor: pointer;
-}
-.arrow:hover {
-    transform: scale(1.2);
-}
-.title-page {
-    width: 33%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.subpage-cart{
-    width: 33%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 10px;
-}
-/*------------------------------------------------------------------------------------------------*/
-.project {
-    background-color: #4c6444;
-    color: white;
-    margin: 10px;
-    display: flex;
-    align-items: top;
-    justify-content: flex-start;
-    padding: 10px;
-    gap: 20px;
-}
-.project-photo {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.project-photo img {
-    width: 100%;
-}
-.project-info {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-h2 {
-    font-size: 25px;
-}
-p {
-    font-size: 20px;
-}
-.sale {
-    width: 10%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-}
-.sale-buttons{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-button {
-    color: white;
-    background-color: #102820;
-    width: 100%;
-    padding: 10px 0;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #194335;
-}
-
-
-
-/*--------------------------------------------------------------------------------*/
-/*-------------------------------------- Cart ------------------------------------*/
-/*--------------------------------------------------------------------------------*/
-
-.checkout {
-    background-color: #4c6444;
-    color: white;
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    align-items: top;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.cart-items-list{
-    width: 100%;
-    max-width: 600px;
-}
-.cart-item{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.submit{
-    width: 33.33%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-.submit button{
-    width: auto;
-    padding: 10px 20px;
-}
-.email-modal{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #00000070;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.email-modal-inner{
-    background-color: #4c6444;
-    width: 100%;
-    max-width: 400px;
-    height: fit;
-    padding: 20px;
-    border-radius: 10px;
-}
-.email-modal-text{
-    width: 100%;
-    text-align: center;
-    color: white;
-}
-.email-modal-input{
-    width: 100%;
-    line-height: 25px;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 10px 0;
-    border: none;
-    text-align: center;
-}
-.submitting-order{
-    width: 100%;
-    text-align: center;
-    font-size: 120%;
-    color: white;
-    margin: 30px 0;
-}
-
-
-/*--------------------------------------------------------------------------------*/
-/*------------------------------- Order Confirmation -----------------------------*/
-/*--------------------------------------------------------------------------------*/
-.order-confirmation{
-    margin: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
