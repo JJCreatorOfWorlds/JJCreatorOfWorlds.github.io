@@ -80,7 +80,7 @@ const app = new Vue({
             });
             var post = {
                 // to: ["me@jjirons.com"],
-                to: ["12012665909@mailinator.com"],
+                to: [self.siteData.emailTo],
                 subject: "New Order Placed",
                 body: "The following items have been ordered by: "+self.contactEmail+" \n\n"+itemList
             };
