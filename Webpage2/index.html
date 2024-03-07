@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="checkout">
                 <p>
                     Note: Shipping cost is included in each item price. <br><br> After 
@@ -124,7 +124,7 @@
             <div class="email-modal-inner">
                 <div v-if="submittingOrder" class="submitting-order">Submitting...</div>
                 <div class="contents" v-else>
-                    <div class="email-modal-text">Before submitting this order, please enter your email address so I can contact you with questions if I have any and to send an invoice</div>
+                    <div class="email-modal-text">Before submitting this order, please enter your email address so I can contact you if I have any questions and to send an invoice</div>
                     <input type="text" v-model="contactEmail" class="email-modal-input">
                     <button type="submit" @click="submitOrder()">Submit Order</button>
                 </div>

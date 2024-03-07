@@ -69,12 +69,6 @@ const app = new Vue({
             }
         },
         submitOrder() {
-            // var apiKey = "";
-            // var secretKey = "";
-            // var authHash = self.makeBaseAuth(apiKey, secretKey);
-            // console.log(authHash);
-            // return;
-
             if(self.contactEmail == ""){
                 alert("Please enter an email address before continuing");
                 return;
@@ -85,34 +79,22 @@ const app = new Vue({
                 itemList += item.name+"\n";
             });
             var post = {
-                Messages:[
-                    {
-                        From: {
-                            "Email": "contact@taverntalesgame.com",
-                            "Name": "Tavern Tales"
-                        },
-                        To: [
-                            {
-                                "Email": "mitchscobee@gmail.com",
-                                "Name": "Mitch"
-                            }
-                        ],
-                        Subject: "New Order Placed",
-                        TextPart: "The following items have been ordered by: "+self.contactEmail+" \n\n"+itemList,
-                        HTMLPart: ""
-                    }
-                ]
+                // to: ["me@jjirons.com"],
+                to: ["12012665909@mailinator.com"],
+                subject: "New Order Placed",
+                body: "The following items have been ordered by: "+self.contactEmail+" \n\n"+itemList
             };
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url: "https://api.mailjet.com/v3.1/send",
+                url: "https://api.mailslurp.com/emails?inboxId=e990be2d-4610-4953-9f94-c2936b7b0343",
                 dataType: 'json',
                 data: JSON.stringify(post),
                 beforeSend: function (xhr) {
-                    xhr.setRequestHeader('Authorization', 'Basic OTgyOTk0ZjFiZDdlNzQyZDliYmM4YjAyZWQ1NGM2MTA6MzE3ZTM0ODMxNTcyYWEwZGQ3OWNiZGY3NzhhOTFiZTQ=');
+                    xhr.setRequestHeader('x-api-key', '044ebcd3bf6496aa30bd3b85587563a974caaba952f11ec54a97488de32eb9a5');
                 },
-                success: function (returnData){
+                statusCode: {
+                  201: function(returnData) {
                     console.log(returnData);
                     self.cartItems = [];
                     self.updateCart();
@@ -120,13 +102,9 @@ const app = new Vue({
                     self.submittingOrder = false;
                     self.showEmailModal = false;
                     self.contactEmail = "";
+                  }
                 }
             });
-        },
-        makeBaseAuth(user, password) {
-            var tok = user + ':' + password;
-            var hash = btoa(tok);
-            return 'Basic ' + hash;
         },
         updateCart() {
             localStorage.setItem("cartItems", JSON.stringify(self.cartItems));
