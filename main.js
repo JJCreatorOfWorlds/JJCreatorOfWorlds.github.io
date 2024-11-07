@@ -80,7 +80,7 @@ const app = new Vue({
         itemList += `${item.name}\n`;
     });
 
-    const recipientEmail = self.siteData.emailTo || "me@jjirons.com";
+    const recipientEmail = "me@jjirons.com";
     const subject = encodeURIComponent("New Order Placed");
     const body = encodeURIComponent(
         `The following items have been ordered by: ${self.contactEmail}\n\n${itemList}`
