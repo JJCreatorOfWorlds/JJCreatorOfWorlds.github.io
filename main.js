@@ -69,43 +69,37 @@ const app = new Vue({
             }
         },
         submitOrder() {
-            if(self.contactEmail == ""){
-                alert("Please enter an email address before continuing");
-                return;
-            }
-            self.submittingOrder = true;
-            var itemList = "";
-            self.cartItems.forEach(item => {
-                itemList += item.name+"\n";
-            });
-            var post = {
-                // to: ["me@jjirons.com"],
-                to: [self.siteData.emailTo],
-                subject: "New Order Placed",
-                body: "The following items have been ordered by: "+self.contactEmail+" \n\n"+itemList
-            };
-            $.ajax({
-                type: "POST",
-                contentType: "application/json",
-                url: "https://api.mailslurp.com/emails?inboxId=05b902d6-bc1b-476a-8e6a-eb24d18df6c7",
-                dataType: 'json',
-                data: JSON.stringify(post),
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader('x-api-key', '011bbb21bc2bcd429381b549a8f39fe093ea47a15c46207a0fa843779a3b0783');
-                },
-                statusCode: {
-                  201: function(returnData) {
-                    console.log(returnData);
-                    self.cartItems = [];
-                    self.updateCart();
-                    self.page = "confirmation";
-                    self.submittingOrder = false;
-                    self.showEmailModal = false;
-                    self.contactEmail = "";
-                  }
-                }
-            });
-        },
+    if (self.contactEmail === "") {
+        alert("Please enter an email address before continuing");
+        return;
+    }
+    
+    self.submittingOrder = true;
+    let itemList = "";
+    self.cartItems.forEach(item => {
+        itemList += `${item.name}\n`;
+    });
+
+    const recipientEmail = self.siteData.emailTo || "me@jjirons.com";
+    const subject = encodeURIComponent("New Order Placed");
+    const body = encodeURIComponent(
+        `The following items have been ordered by: ${self.contactEmail}\n\n${itemList}`
+    );
+
+    // Construct the mailto link
+    const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+    
+    // Open the mailto link to prompt the user's email client
+    window.location.href = mailtoLink;
+
+    // Reset the cart and form after opening the email client
+    self.cartItems = [];
+    self.updateCart();
+    self.page = "confirmation";
+    self.submittingOrder = false;
+    self.showEmailModal = false;
+    self.contactEmail = "";
+},
         updateCart() {
             localStorage.setItem("cartItems", JSON.stringify(self.cartItems));
             self.getCartTotals();
