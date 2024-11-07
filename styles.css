@@ -168,7 +168,7 @@ header {
     gap: 20px;
 }
 .project-photo {
-    width: 20%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -177,7 +177,7 @@ header {
     width: 100%;
 }
 .project-info {
-    width: 70%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     gap: 20px;
