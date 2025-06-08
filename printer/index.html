@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=https://voron.tailf403c6.ts.net/" />
-  <title>Redirecting...</title>
+  <title>Protected Redirect</title>
+  <script>
+    function checkPassword() {
+      const password = prompt("Enter password to access this page:");
+      if (password === "TheyCallMeJohnSecure") {
+        window.location.href = "https://voron.tailf403c6.ts.net/";
+      } else {
+        alert("Incorrect password!");
+        // Optional: redirect to homepage or stay here
+        // window.location.href = "/";
+      }
+    }
+    window.onload = checkPassword;
+  </script>
 </head>
 <body>
   <p>If you are not redirected automatically, <a href="https://voron.tailf403c6.ts.net/">click here</a>.</p>
 </body>
+</html>
