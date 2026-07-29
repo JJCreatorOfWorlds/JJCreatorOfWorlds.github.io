@@ -12,8 +12,8 @@ const app = new Vue({
         slideImages: ["img/bag.png", "img/botwSword.jpg", "img/trollskull.png", "img/orrery.png", "img/quilt.png"],
         currentSlideImage: "img/bag.png",
 
-        selectedCategory: null,
-        selectedCategoryItems: [],
+        // flattened list of all projects (no categories)
+        allProjects: [],
     },
     created: function () {
         self = this;
@@ -23,8 +23,28 @@ const app = new Vue({
         getSiteData(){
             $.get('https://api.npoint.io/978b41969ecee7834702', function (info) {
                 self.siteData = info;
+
+                // build a single flat array of all projects from the category references
+                self.allProjects = [];
+                if(self.siteData && Array.isArray(self.siteData.categories)){
+                    self.siteData.categories.forEach(function(category){
+                        var key = category.categoryObject;
+                        var items = self.siteData[key];
+                        if(Array.isArray(items)){
+                            items.forEach(function(it){
+                                // keep a reference to which category it came from if needed
+                                it._category = category.name || key;
+                                self.allProjects.push(it);
+                            });
+                        }
+                    });
+                }
+
                 self.loadingData = false;
                 self.automaticSlide();
+            }).fail(function(){
+                self.error = 'Failed to load site data';
+                self.loadingData = false;
             });
         },
         automaticSlide(){

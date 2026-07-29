@@ -16,7 +16,7 @@
         <!-- ======================================================== -->
         <!-- ====================== Home Page ======================= -->
         <!-- ======================================================== -->
-        <div class="contents" v-if="page == 'home' && !loadingData">
+        <div class="contents" v-if="!loadingData">
             <div class="header">
                 <div class="slideshow">
                     <img :src="currentSlideImage" class="slide-img" />
@@ -26,31 +26,14 @@
                 </div>
             </div>
             
+            <!-- All projects in one big grid (Pinterest-like) -->
             <div class="body-grid">
-                <div v-for="(category, index) in siteData.categories" :key="index" class="body-item"  @click="selectedCategory = category; selectedCategoryItems = siteData[category.categoryObject]; page = 'subpage'">
-                    <img :src="category.img" :alt="category.categoryObject" class="body-img">
-                </div>
-            </div>
-        </div>
-
-        <!-- ======================================================== -->
-        <!-- ======================= Sub Page ======================= -->
-        <!-- ======================================================== -->
-        <div class="contents" v-if="page == 'subpage' && !loadingData">
-            <header>
-                <div class="back">
-                    <img src="img/back.png" alt="back arrow" class="arrow" @click="page = 'home'">
-                </div>
-                <div class="title-page"><h1>{{selectedCategory.name}}</h1></div>
-            </header>
-
-            <div class="project" v-for="(project, index) in selectedCategoryItems" :key="index">
-                <div class="project-photo">
-                    <img :src="project.img" :alt="project.alt">
-                </div>
-                <div class="project-info">
-                    <h2>{{project.name}}</h2>
-                    <p>{{project.description}}</p>
+                <div v-for="(project, index) in allProjects" :key="index" class="body-item">
+                    <img :src="project.img" :alt="project.alt || project.name" class="body-img">
+                    <div class="project-caption">
+                        <h3>{{project.name}}</h3>
+                        <p>{{project.description}}</p>
+                    </div>
                 </div>
             </div>
         </div>
