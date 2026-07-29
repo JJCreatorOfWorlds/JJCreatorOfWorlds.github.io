@@ -18,10 +18,8 @@
         <!-- ======================================================== -->
         <div class="contents" v-if="!loadingData">
             <div class="header">
-                <div class="slideshow">
-                    <img :src="currentSlideImage" class="slide-img" />
-                </div>
-                <div class="info">
+                <!-- carousel removed: centered logo only -->
+                <div class="info" style="width:100%; display:flex; justify-content:center;">
                     <img src="img/JJLogo.png" alt="JJ Irons, Artist, Craftsman, Designer" class="body-img">
                 </div>
             </div>
