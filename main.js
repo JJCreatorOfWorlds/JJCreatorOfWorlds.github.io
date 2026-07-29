@@ -45,12 +45,24 @@ const app = new Vue({
                     });
                 }
 
+                // randomize project order so the grid shows a fresh mix each load
+                this.shuffleProjects(this.allProjects);
+
                 this.loadingData = false;
                 // carousel removed per user request
             }).fail(() => {
                 this.error = 'Failed to load site data';
                 this.loadingData = false;
             });
+        },
+
+        // Fisher-Yates shuffle in place (randomizes array order)
+        shuffleProjects(arr) {
+            if (!Array.isArray(arr)) return;
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
         },
 
         openSidebar(project) {
