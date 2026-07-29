@@ -6,9 +6,6 @@ const app = new Vue({
         loadingData: true,
         //data that drives categories and items
         siteData: null,
-        slideIndex: 0,
-        slideImages: ["img/bag.png", "img/botwSword.jpg", "img/trollskull.png", "img/orrery.png", "img/quilt.png"],
-        currentSlideImage: "img/bag.png",
 
         // flattened list of all projects (no categories)
         allProjects: [],
@@ -49,20 +46,11 @@ const app = new Vue({
                 }
 
                 this.loadingData = false;
-                this.automaticSlide();
+                // carousel removed per user request
             }).fail(() => {
                 this.error = 'Failed to load site data';
                 this.loadingData = false;
             });
-        },
-        automaticSlide() {
-            // schedule next run with arrow function so `this` is preserved
-            setTimeout(() => this.automaticSlide(), 5000);
-            this.slideIndex++;
-            if (this.slideIndex == this.slideImages.length) {
-                this.slideIndex = 0;
-            }
-            this.currentSlideImage = this.slideImages[this.slideIndex];
         },
 
         openSidebar(project) {
