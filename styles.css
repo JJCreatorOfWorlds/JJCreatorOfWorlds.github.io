@@ -251,12 +251,18 @@ body, html {
 /* On small screens make the sidebar take most of the viewport (double relative size) */
 @media (max-width: 640px) {
     .sidebar {
-        width: 95%;
+        width: 75vw; /* cover ~75% of the screen width */
         max-width: none;
-        right: 2.5%;
-        left: 2.5%;
+        right: 0;    /* anchor to the right so it covers the right 75% */
+        left: auto;
         padding: 18px;
+        border-radius: 6px;
     }
+    .sidebar-photo img {
+        max-height: 60vh; /* keeps image visible without forcing scrolling */
+    }
+    .sidebar-content h2 { font-size: 1.1rem; }
+    .sidebar-content p  { font-size: 1rem; line-height: 1.4; }
 }
 
 /*--------------------------------------------------------------------------------*/
