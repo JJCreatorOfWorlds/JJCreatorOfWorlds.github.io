@@ -44,6 +44,19 @@ body, html {
     max-height: 300px;
     width: 100%;
 }
+
+/* shrink the logo in the header to ~50% width */
+.header .info img {
+    width: 50%;
+    max-width: 50%;
+    height: auto;
+}
+
+/* add vertical spacing between header and gallery */
+.contents .header {
+    margin-bottom: 28px;
+}
+
 .slideshow{
     height: 10%;
     max-height: 250px;
