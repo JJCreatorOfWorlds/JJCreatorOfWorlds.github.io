@@ -207,7 +207,7 @@ body, html {
     right: 0;
     top: 0;
     height: 100%;
-    width: 380px;
+    width: 420px; /* slightly larger on desktop */
     max-width: 90%;
     background: #2a3b2a;
     color: white;
@@ -241,6 +241,22 @@ body, html {
     opacity: 0.9;
     font-size: 0.9em;
     color: #d7e6d7;
+}
+
+/* Make the sidebar wider on large screens */
+@media (min-width: 1400px) {
+    .sidebar { width: 480px; }
+}
+
+/* On small screens make the sidebar take most of the viewport (double relative size) */
+@media (max-width: 640px) {
+    .sidebar {
+        width: 95%;
+        max-width: none;
+        right: 2.5%;
+        left: 2.5%;
+        padding: 18px;
+    }
 }
 
 /*--------------------------------------------------------------------------------*/
