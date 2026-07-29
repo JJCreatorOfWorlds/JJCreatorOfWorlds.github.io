@@ -28,8 +28,16 @@
             
             <!-- All projects in one big responsive grid -->
             <div class="body-grid">
-                <div v-for="(project, index) in allProjects" :key="index" class="body-item" @click="openSidebar(project)">
-                    <img :src="project.img" :alt="project.alt || project.name" class="body-img">
+                <div v-for="(project, index) in allProjects"
+                     :key="index"
+                     class="body-item"
+                     role="button"
+                     tabindex="0"
+                     :aria-label="project.name"
+                     @click="openSidebar(project)"
+                     @keydown.enter.prevent="openSidebar(project)"
+                     @keydown.space.prevent="openSidebar(project)">
+                    <img :src="project.img" :alt="project.alt || project.name" class="body-img" loading="lazy">
                     <div class="project-caption">
                         <h3>{{project.name}}</h3>
                         <p>{{project.description}}</p>
@@ -44,7 +52,7 @@
             <aside class="sidebar">
                 <button class="close" @click="closeSidebar">✕</button>
                 <div class="sidebar-photo">
-                    <img :src="activeProject.img" :alt="activeProject.alt || activeProject.name">
+                    <img :src="activeProject.img" :alt="activeProject.alt || activeProject.name" loading="lazy">
                 </div>
                 <div class="sidebar-content">
                     <h2>{{activeProject.name}}</h2>
