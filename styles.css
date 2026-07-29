@@ -18,10 +18,12 @@ body, html {
 }
 #app{
     width: 100%;
-    max-width: 1080px;
-    margin: auto;
+    /* increase max-width so gallery can use more horizontal space */
+    max-width: 1400px;
+    margin: 8px auto; /* small top/bottom gap but less dead space at sides */
     display: flex;
     flex-direction: column;
+    padding: 0 12px;
 }
 .loading-data{
     width: 100%;
@@ -45,15 +47,15 @@ body, html {
 .slideshow{
     height: 10%;
     max-height: 250px;
-    max-width: 300px;
-    width: 40%;
+    max-width: 340px;
+    width: 34%;
     overflow: hidden;
     padding: 10px;
     background-color: #4c6444;
 }
 .slide-img{
-    height: 10%;
     width: 100%;
+    height: auto;
     vertical-align: middle;
 }
 .info {
@@ -68,59 +70,64 @@ body, html {
 }
 
 /*----------------------------------------------------------------------------------------*/
-/* Use Flexbox so images keep their original aspect ratios and tiles flow naturally */
+/* Masonry-like gallery using CSS columns: images keep natural aspect ratios and flow into columns */
 .body-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 12px;
+    column-width: 360px;      /* preferred column width (adjust to make images bigger/smaller) */
+    column-gap: 18px;         /* spacing between columns */
+    padding: 12px 4px 24px 4px;
     background-color: #102820;
-    align-items: flex-start; /* allow items to have varying heights */
-    justify-content: center; /* center the collection */
+    /* center the grid content within #app */
+    margin: 0 auto;
 }
-.body-item {
-    background-color: #4c6444;
-    padding: 8px;
-    border: 5px solid #102820;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.12s ease, background-color 0.12s ease;
 
-    /* flex sizing: allow tiles to shrink/grow but prefer a minimum width */
-    flex: 1 1 240px; /* grow, shrink, base width */
-    max-width: 320px;
+/* Each tile becomes an inline-block so it flows into the column layout and preserves its height */
+.body-item {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 18px; /* vertical spacing between tiles */
+    background-color: transparent; /* remove blocky background so images blend more */
+    padding: 4px; /* small internal padding so the border doesn't touch the image */
+    border: 4px solid rgba(76,100,68,0.95); /* maintain green frame but slightly thinner */
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    break-inside: avoid-column; /* don't split tiles between columns */
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    box-shadow: none;
 }
+
+/* images keep their native aspect ratio and fill the tile width */
 .body-img {
     width: 100%;
-    height: auto; /* preserve original aspect ratio */
-    object-fit: contain;
-    vertical-align: middle;
+    height: auto;        /* preserve original aspect ratio */
+    object-fit: contain; /* show whole image, no cropping */
     display: block;
 }
+
 .project-caption {
     padding: 8px 4px 0 4px;
     /* Hidden by default so only images show (details are in the sidebar) */
     display: none;
 }
+
 .body-item:hover {
     transform: translateY(-4px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.45);
 }
 
-/* Make sure very wide screens don't make images huge: constrain images inside the tile */
-.body-item img {
-    max-width: 100%;
-    height: auto;
+/* make images slightly larger on wide screens by reducing the number of columns via larger column-width */
+@media (min-width: 1400px) {
+    .body-grid { column-width: 420px; column-gap: 20px; }
+    .body-item { border-width: 5px; }
 }
 
-/* On narrow screens, allow tiles to become full-width so images remain readable */
+/* responsiveness: stack columns on small screens and make images full-width */
+@media (max-width: 900px) {
+    .body-grid { column-width: 280px; column-gap: 12px; }
+}
 @media (max-width: 640px) {
-    .body-item {
-        flex: 1 1 100%;
-        max-width: none;
-    }
-    .slide-img{ height: auto; }
+    .body-grid { column-width: 100%; column-gap: 12px; }
+    .body-item { width: 100%; }
+    .slideshow{ display:none; }
 }
 
 /*----------------------------------------------------------------------------------------*/
