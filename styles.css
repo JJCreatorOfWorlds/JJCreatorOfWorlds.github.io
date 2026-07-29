@@ -95,6 +95,8 @@ body, html {
 }
 .project-caption {
     padding: 8px 4px 0 4px;
+    /* Hide captions by default so only images show; details appear in the sidebar when clicked */
+    display: none;
 }
 .body-item:hover {
     transform: translateY(-4px);
