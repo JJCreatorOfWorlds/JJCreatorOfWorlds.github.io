@@ -147,12 +147,49 @@ body, html {
 .footer {
     color: white;
     display: flex;
-    justify-content: space-evenly;
-    height: 10%;
+    justify-content: center; /* center both items */
+    align-items: center;
+    gap: 24px;
+    padding: 18px 12px;
     background-color: #102820;
-    margin: 10px;
+    margin: 12px 0;
+    flex-wrap: wrap; /* allow stacking on small screens */
 }
 
+.footer .counter,
+.footer .logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Target possible injected elements from the counter script (img, iframe, object) */
+.footer .counter img,
+.footer .counter iframe,
+.footer .counter object,
+.footer .logos img {
+    display: block;
+    width: auto;
+    max-height: 140px; /* larger on desktop */
+    max-width: 100%;
+}
+
+/* On small screens, stack and make the images more prominent */
+@media (max-width: 640px) {
+    .footer {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 8px;
+    }
+    .footer .counter img,
+    .footer .counter iframe,
+    .footer .counter object,
+    .footer .logos img {
+        max-height: 220px; /* allow larger visuals on mobile */
+        width: 85%;
+        max-width: 420px;
+    }
+}
 
 /*--------------------------------------------------------------------------------*/
 /* Sidebar and overlay for project details */
