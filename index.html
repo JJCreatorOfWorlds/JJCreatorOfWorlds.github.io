@@ -26,9 +26,9 @@
                 </div>
             </div>
             
-            <!-- All projects in one big grid (Pinterest-like) -->
+            <!-- All projects in one big responsive grid -->
             <div class="body-grid">
-                <div v-for="(project, index) in allProjects" :key="index" class="body-item">
+                <div v-for="(project, index) in allProjects" :key="index" class="body-item" @click="openSidebar(project)">
                     <img :src="project.img" :alt="project.alt || project.name" class="body-img">
                     <div class="project-caption">
                         <h3>{{project.name}}</h3>
@@ -36,6 +36,22 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Overlay + Sidebar for project details -->
+        <div v-if="sidebarOpen">
+            <div class="overlay" @click="closeSidebar"></div>
+            <aside class="sidebar">
+                <button class="close" @click="closeSidebar">✕</button>
+                <div class="sidebar-photo">
+                    <img :src="activeProject.img" :alt="activeProject.alt || activeProject.name">
+                </div>
+                <div class="sidebar-content">
+                    <h2>{{activeProject.name}}</h2>
+                    <p>{{activeProject.description}}</p>
+                    <p v-if="activeProject._category" class="muted">Category: {{activeProject._category}}</p>
+                </div>
+            </aside>
         </div>
 
         <div class="footer">

@@ -14,10 +14,20 @@ const app = new Vue({
 
         // flattened list of all projects (no categories)
         allProjects: [],
+
+        // sidebar state
+        sidebarOpen: false,
+        activeProject: null,
     },
     created: function () {
         self = this;
         self.getSiteData();
+        // bind escape key to close sidebar
+        document.addEventListener('keydown', function(e){
+            if(e.key === 'Escape' && self.sidebarOpen){
+                self.closeSidebar();
+            }
+        });
     },
     methods: {
         getSiteData(){
@@ -55,5 +65,17 @@ const app = new Vue({
             }
             self.currentSlideImage = self.slideImages[self.slideIndex];
         },
+
+        openSidebar(project){
+            this.activeProject = project || null;
+            this.sidebarOpen = true;
+            // prevent body scrolling when sidebar open
+            document.body.style.overflow = 'hidden';
+        },
+        closeSidebar(){
+            this.sidebarOpen = false;
+            this.activeProject = null;
+            document.body.style.overflow = '';
+        }
     }
 });

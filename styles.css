@@ -68,28 +68,37 @@ body, html {
 }
 
 /*----------------------------------------------------------------------------------------*/
+/* Use CSS Grid so the images maximize available width and wrap nicely */
 .body-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 50%;
-    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    padding: 12px;
     background-color: #102820;
+    align-items: start;
 }
 .body-item {
     background-color: #4c6444;
-    padding: 10px;
-    width: 350px;
+    padding: 8px;
     border: 5px solid #102820;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.12s ease, background-color 0.12s ease;
 }
 .body-img {
     width: 100%;
+    height: 200px;
+    object-fit: cover;
     vertical-align: middle;
+    display: block;
+}
+.project-caption {
+    padding: 8px 4px 0 4px;
 }
 .body-item:hover {
-    background-color: white;
-    border: white;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 
 /*----------------------------------------------------------------------------------------*/
@@ -102,6 +111,58 @@ body, html {
     margin: 10px;
 }
 
+
+/*--------------------------------------------------------------------------------*/
+/* Sidebar and overlay for project details */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1000;
+}
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 380px;
+    max-width: 90%;
+    background: #2a3b2a;
+    color: white;
+    box-shadow: -6px 0 20px rgba(0,0,0,0.6);
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1001;
+}
+.sidebar .close {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+}
+.sidebar-photo img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 12px;
+}
+.sidebar-content h2 {
+    margin-bottom: 8px;
+}
+.muted {
+    opacity: 0.9;
+    font-size: 0.9em;
+    color: #d7e6d7;
+}
 
 /*--------------------------------------------------------------------------------*/
 /*------------------------------------ Sub Page ----------------------------------*/
